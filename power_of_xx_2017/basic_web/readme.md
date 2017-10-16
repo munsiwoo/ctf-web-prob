@@ -1,9 +1,13 @@
 power of xx 2017
 
 제작 : 문시우
+
 문제명 : basic web
+
 난이도 : 하
+
 분야 : 웹
+
 서버 환경 : apache, php5, mysql
 
 설명 : lfi + sqli (error based blind insert injection)
