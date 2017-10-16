@@ -1,0 +1,8 @@
+﻿[b]Bold Text[/b]
+[i]Italic Text[/i]
+[url]http://www.php.net/[/url]
+[url=http://pecl.php.net/][b]Content Text[/b][/url]
+[img]http://static.php.net/www.php.net/images/php.gif[/img]
+[url=http://www.php.net/]
+[img]http://static.php.net/www.php.net/images/php.gif[/img]
+[/url]
