@@ -1,0 +1,135 @@
+<?php
+error_reporting(0);
+session_start();
+?>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="./assets/style.css" type="text/css">
+  <title>DAILY LIFE</title>
+</head>
+<body class="text-center">
+  <nav class="navbar navbar-inverse navbar-expand-md navbar-dark bg-primary">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav ">
+          <li class="nav-item">
+            <a class="nav-link" href="?p=home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?p=send">Send</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?p=board">Board</a>
+          </li>
+          <? if(isset($_SESSION['username'])){ ?>
+            <li class="nav-item">
+              <a class="nav-link" href="adm1n.htm">Admin Page</a>
+            </li>
+            <a class="btn navbar-btn btn-secondary mx-3" href="?p=logout">Logout</a>
+          <? } else { ?>
+          <a class="btn navbar-btn btn-secondary mx-3" href="?p=login">Login</a>
+          <? } ?>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="cover d-flex align-items-center pt-1 bg-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-md-left align-self-center my-5">
+          <h1 class="text-white display-5" align="center">John's DAILY LIFE</h1>
+          <h4 class="text-white" align="center">Welcome to my blog XD</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section py-5 text-md-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-primary">About Me</h2>
+          <br>
+          <p class="lead">Hi, My name is John.<br>
+          I am studying music in America. And I like <a href='https://www.youtube.com/'>Youtube</a>,
+          <a href='https://soundcloud.com/'>SoundCloud</a> :)
+          </p><br>
+          <a href="?p=board" class="btn btn-outline-primary btn-lg">MY DAILY LIFE</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="py-5 text-center">
+    <h2 class="text-primary">My favorite channels</h2>
+    <br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card my-1">
+            <div class="card-block text-xs-center">
+              <h3 class="card-title">Youtube</h3>
+              <p>NCS</p>
+            </div>
+            <div class="card-block">
+              <a href="https://www.youtube.com/user/NoCopyrightSounds" class="btn btn-block btn-primary">Link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card my-1">
+            <div class="card-block text-xs-center">
+              <h3 class="card-title">Youtube</h3>
+              <p>Cafe Music</p>
+            </div>
+            <div class="card-block ">
+              <a href="https://www.youtube.com/user/cafemusicbgmchannel" class="btn btn-block btn-primary">Link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card my-1">
+            <div class="card-block text-xs-center">
+              <h3 class="card-title">Youtube</h3>
+              <p>jwcfree</p>
+            </div>
+            <div class="card-block ">
+              <a href="https://www.youtube.com/user/jwcfree" class="btn btn-block btn-primary">Link</a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="blockquote">
+            <p>Welcome, this is a free daily blog.</p>
+            <div class="blockquote-footer">Admin</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5 bg-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 my-3">
+          <p>© Siwoo Mun. All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="./assets/bootstrap.min.js"></script>
+</body>
+</html>
