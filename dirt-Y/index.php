@@ -1,7 +1,8 @@
 <?php
 	error_reporting(0);
-	require("flag.php");
+	require_once 'flag.php';
 	# made by munsiwoo
+	# sorry, this challenge is dirty ;D
 
 	$x = 1337;
 	$e = array();
@@ -30,4 +31,3 @@
 	}
 	
 	show_source(__FILE__);
-?>
