@@ -1,4 +1,10 @@
 # H3X0R CTF 2018
+
+```
+H3X0R CTF 2018 - goodaegi board, sqlgame revenge write-ups
+Written by Siwoo Mun (munsiwoo)
+```
+
 ## goodaegi board (490pts) - solver (1)
 
 구대기 보드는 SQL Injection과 LFI, PHP 세션을 이용해 RCE하는 문제다.
