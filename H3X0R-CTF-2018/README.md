@@ -7,9 +7,9 @@ Written by Siwoo Mun (munsiwoo)
 
 ## goodaegi board (490pts) - solver (1)
 
-구대기 보드는 SQL Injection과 LFI, PHP 세션을 이용해 RCE하는 문제다.  
-의도한 풀이의 전체적인 흐름은 SQL Injection으로 PHP 코드를 username에 넣어주고 가입한 계정으로 로그인해서  
-LFI로 해당 계정의 세션을 포함시켜 RCE로 flag.php 읽어오는걸 의도했다. (Session to RCE)  
+구대기 보드는 SQL Injection과 LFI, PHP 세션을 이용한 RCE문제다.  
+의도한 풀이는 SQL Injection으로 PHP 코드를 username에 넣어주고 가입한 계정으로 로그인해서  
+LFI로 해당 계정의 세션을 포함시켜 RCE로 flag.php 읽어오는걸 의도했다. (SESSION to RCE)  
   
 자세한 풀이는 아래를 참고하자  
   
@@ -64,7 +64,7 @@ username : ``<? eval($_GET[x]);?>``
 password : ``a``  
 
 ---------------------------------------------
-### PHP Session to RCE PoC
+### PHP SESSION to RCE PoC
 
 Session to RCE의 간단한 예시를 들어보면  
 PHP에서 로그인을 구현할 때 로그인에 성공하면 보통 아래와 같이 세션을 처리한다.
@@ -89,7 +89,7 @@ ex) PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0; => sess_fqs54b8ies3uhuhlttlb3lq3d0
 단, 회원 가입에서 ``<, >`` 를 막아놨기 때문에 SQL Injection을 활용해야 한다.
 
 --------------------------------------------
-### LFI to RCE (session inclusion)
+### LFI (session inclusion)
 이제 세션에 PHP 코드를 넣는데 성공했다.  
 LFI는 ``?p=home.html`` 여기 p 파라미터에서 발생하는데 p 파라미터는 ``secure_page`` 함수를 거친다.  
 해당 함수는 ``config/function.php`` 에서 확인할 수 있다.
