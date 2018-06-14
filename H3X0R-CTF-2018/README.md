@@ -38,7 +38,7 @@ public function user_join($user) {
 }
 ```
 
-위 소스의 2 번째 줄부터 4 번째 줄을 확인하면 addslashes를 거치고 substr로 문자열을 자르고 있다.
+위 소스의 두 번째 줄부터 네 번째 줄을 보면 addslashes를 거치고 SQL Truncate Attack을 방어한다는 명분으로 문자열을 100자로 자르고 있다.
 
 addslashes를 거치기 때문에 이 코드가 안전하다고 생각할 수 있겠지만 아래와 같이 공격이 가능하다.
 
@@ -47,7 +47,7 @@ nickname : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 username : ,1,1)#
 ```
 
-이유는 'a' * 99 뒤에 single quote(')가 붙었을 때 addslashes를 거치면서 앞에 backslashes(\)가 붙고
+이유는 'a' * 99 뒤에 single quote가 붙었을 때 addslashes를 거치면서 앞에 backslashes(\)가 붙고
 
 'a' * 99 + backslashes + single quote가 되면서 '가 잘리게 된다.
 
