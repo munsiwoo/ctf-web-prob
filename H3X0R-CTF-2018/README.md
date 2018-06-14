@@ -8,8 +8,8 @@ Written by Siwoo Mun (munsiwoo)
 ## goodaegi board (490pts) - solver (1)
 
 구대기 보드는 SQL Injection과 LFI, PHP 세션을 이용해 RCE하는 문제다.  
-의도한 풀이의 전체적인 흐름은 SQL Injection으로 PHP 코드를 username에 넣어주고 해당 계정으로 로그인해서  
-LFI로 계정의 세션을 포함시켜 RCE로 flag.php 읽어오는걸 의도했다. (Session to RCE)  
+의도한 풀이의 전체적인 흐름은 SQL Injection으로 PHP 코드를 username에 넣어주고 가입한 계정으로 로그인해서  
+LFI로 해당 계정의 세션을 포함시켜 RCE로 flag.php 읽어오는걸 의도했다. (Session to RCE)  
   
 자세한 풀이는 아래를 참고하자  
   
