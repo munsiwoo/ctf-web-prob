@@ -1,7 +1,7 @@
 # H3X0R CTF 2018
 ## goodaegi board (490pts) - solver (1)
 
-이 문제는 SQL Injection과 LFI를 이용한 Session to RCE 하는 문제다.
+이 문제는 SQL Injection과 LFI, PHP 세션을 이용한 Session to RCE를 하는 문제다.
 
 성공적으로 RCE하기 위해서는 SQL Injection, LFI, 세션을 잘 이용해야 한다.
 
