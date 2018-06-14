@@ -1,4 +1,4 @@
-# H3X0R CTF 2018
+# H3X0R CTF 2018 - Web Write-up (author : munsiwoo)
 
 ```
 H3X0R CTF 2018 - goodaegi board, sqlgame revenge write-ups
