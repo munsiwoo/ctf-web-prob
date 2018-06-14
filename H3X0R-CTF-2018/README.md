@@ -47,7 +47,7 @@ username : ,1,1)#
 ```
 
 이유는 'a' * 99 뒤에 single quote가 붙었을 때 addslashes를 거치면서 앞에 backslashes(\)가 붙고  
-'a' * 99 + backslashes + single quote가 되면서 '가 잘리게 된다.  
+'a' * 99 + backslashes + single quote가 되면서 single quote가 잘리게 된다.  
   
 즉 아래와 같은 꼴이 된다.  
   
