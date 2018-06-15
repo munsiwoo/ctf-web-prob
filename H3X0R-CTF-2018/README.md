@@ -96,10 +96,10 @@ LFI는 ``?p=home.html`` 여기 p 파라미터에서 발생하는데 p 파라미�
 
 ```php
 function secure_page($page) { // anti hack
-	$page = strtolower(trim($page)); // str to lowercase and remove whitespace
-	$page = str_replace(chr(0), '', $page); // remove null byte
-	$page = str_replace('../', '', $page); // remove '../'
-	if(substr($page, -4, 4) == 'html') { // check extension
+	$page = strtolower(trim($page)); // 안봐도 됨
+	$page = str_replace(chr(0), '', $page); // 안봐도 됨
+	$page = str_replace('../', '', $page); // '../' 지우기
+	if(substr($page, -4, 4) == 'html') { // 확장자가 html인지 체크
 		return $page;
 	} 
 	die('403 forbidden.');
