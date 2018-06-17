@@ -110,7 +110,7 @@ function secure_page($page) { // anti hack
 우선 4 번째 줄을 보면 ``../`` 를 없애고 있다, ``..././`` 이렇게 바꿔주면 가운데 ``../``가 없어지면서 ``../`` 가 된다.  
 그 다음 분기문 ``substr($page, -4, 4) == 'html'`` 이 부분을 우회하는 방법은 그냥 세션 값을 바꾸면 된다.
 세션 값은 사용자가 임의로 바꿀 수 있기 때문에 세션 값 맨 뒤에 ``html``를 추가하면 생성되는 세션 파일명도 바뀌기 때문이다.
-ex) ``PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0html``  -> ``sess_fqs54b8ies3uhuhlttlb3lq3d0html``  
+ex) ``PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0html``  => ``sess_fqs54b8ies3uhuhlttlb3lq3d0html``  
   
 ``?p=..././..././..././..././..././var/lib/php/sessions/fqs54b8ies3uhuhlttlb3lq3d0html``  
   
