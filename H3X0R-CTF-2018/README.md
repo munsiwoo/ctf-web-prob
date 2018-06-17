@@ -80,9 +80,10 @@ if(isset($fetch['username'])) { // 유저가 존재한다면
 
 만약 여기서 ``$fetch['username']`` 변수에 ``<?php phpinfo(); ?>`` 가 들어가면 어떻게 될까?  
 세션 파일에 들어가는 내용이 ``username|s:19:"<?php phpinfo(); ?>";`` 이렇게 될 것이다.  
-우분투 기준 PHP 세션은 기본적으로 ``/var/lib/php/sessions/`` 에 저장되며 어느 계정이든 접근이 가능한 디렉토리다.  
-또한 저장되는 세션 파일명도 일정한 규칙이 있어서 알아낼 수 있기 때문에 PHP코드가 포함된 세션을 inclusion한다면 RCE가 가능하다.  
-
+우분투 기준 php 세션은 기본적으로 ``/var/lib/php/sessions/`` 에 저장되며 어느 계정이든 접근이 가능한 디렉토리다.  
+또한 저장되는 세션 파일명도 일정한 규칙이 있어서 알아낼 수 있기 때문에  
+php 코드가 포함된 세션을 inclusion한다면 rce가 가능하다.  
+  
 * 세션 파일명 : ``sess_[random_string]`` 여기서 ``[random_string]``은 클라이언트가 가지고 있는 PHPSESSID 값이다.  
 ex) ``PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0;`` => ``sess_fqs54b8ies3uhuhlttlb3lq3d0``
   
@@ -90,8 +91,9 @@ ex) ``PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0;`` => ``sess_fqs54b8ies3uhuhlttlb3lq3
 
 --------------------------------------------
 ### LFI (session inclusion)
-이제 세션에 php 코드를 넣는데 성공했다.  
-lfi는 ``?p=home.html`` 여기 p 파라미터에서 발생하는데 p 파라미터는 ``secure_page`` 함수를 거친다.  
+
+``?p=home.html`` $_GET['p']에서 lfi가 발생한다.  
+``index.php``를 확인해보면 $_GET['p']는 ``secure_page`` 함수를 거친다.  
 해당 함수는 ``config/function.php`` 에서 확인할 수 있다.
 
 ```php
@@ -111,13 +113,13 @@ ex) ``PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0html``
   
 ``?p=..././..././..././..././..././var/lib/php/sessions/fqs54b8ies3uhuhlttlb3lq3d0html``  
   
-rce가 성공적으로 되는걸 확인했다면, flag.php를 읽으면 된다.  
+rce에 성공했다면 ``flag.php``를 읽으면 flag를 얻을 수 있다. 
   
-``?p=..././..././..././..././..././var/lib/php/sessions/fqs54b8ies3uhuhlttlb3lq3d0html&x=echo file_get_contents('flag.php');``
+``?p=..././..././..././..././..././var/lib/php/sessions/fqs54b8ies3uhuhlttlb3lq3d0html&x=echo%20file_get_contents('flag.php');``
 
 ## sqlgame revenge (480pts) - solver (2)
 
-노말한 sql injection challenge다.
+sql injection challenge다.
 
 ```php
 <?php
