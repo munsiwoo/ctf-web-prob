@@ -7,16 +7,16 @@ Written by Siwoo Mun (munsiwoo)
 
 ## goodaegi board (490pts) - solver (1)
 
-구대기 보드는 SQL Injection과 LFI, PHP 세션을 이용한 RCE문제다.  
-의도한 풀이는 SQL Injection으로 PHP 코드를 username에 넣어주고 가입한 계정으로 로그인해서  
-LFI로 해당 계정의 세션을 포함시켜 RCE로 flag.php 읽어오는걸 의도했다. (SESSION to RCE)  
+구대기 보드는 sql injection과 lfi, php 세션을 이용한 rce문제다.  
+의도한 풀이는 sql injection으로 php 코드를 username에 넣어주고 가입한 계정으로 로그인해서  
+lfi로 해당 계정의 세션을 포함시켜 rce로 flag.php 읽어오는걸 의도했다. (session to rce)  
   
 자세한 풀이는 아래를 참고하자  
   
 --------------------------------
 ### SQL Injection
 
-``classes/user.class.php`` 에 있는 user_join 함수에서 SQL Injection이 발생한다.
+``classes/user.class.php`` 에 있는 user_join 함수에서 sql injection이 발생한다.
 
 ```php
 public function user_join($user) {
@@ -36,8 +36,8 @@ public function user_join($user) {
 }
 ```
 
-위 소스의 두 번째 줄부터 네 번째 줄을 보면 addslashes를 거치고  
-SQL Truncate Attack을 방어한다는 명분으로 문자열을 100자로 자르고 있다.  
+위 소스의 두 번째 줄부터 네 번째 줄을 보면 sql injection방지를 위해 addslashes를 거치고
+sql truncate attack을 방지한다며 문자열을 100자로 자르고 있다.  
   
 addslashes를 거치기 때문에 이 코드가 안전하다고 생각할 수 있겠지만 아래와 같이 공격이 가능하다.  
 
@@ -66,8 +66,8 @@ password : ``a``
 ---------------------------------------------
 ### PHP SESSION to RCE PoC
 
-Session to RCE의 간단한 예시를 들어보면  
-PHP에서 로그인을 구현할 때 로그인에 성공하면 보통 아래와 같이 세션을 처리한다.
+session to rce의 간단한 예시를 들어보면  
+php에서 로그인을 구현할 때 로그인에 성공하면 보통 아래와 같이 세션을 처리한다.
 
 ```php
 <?php
@@ -83,15 +83,15 @@ if(isset($fetch['username'])) { // 유저가 존재한다면
 우분투 기준 PHP 세션은 기본적으로 ``/var/lib/php/sessions/`` 에 저장되며 어느 계정이든 접근이 가능한 디렉토리다.  
 또한 저장되는 세션 파일명도 일정한 규칙이 있어서 알아낼 수 있기 때문에 PHP코드가 포함된 세션을 inclusion한다면 RCE가 가능하다.  
 
-* 세션 파일명 : ``sess_[random_string]`` 여기서 random_string은 클라이언트가 가지고 있는 PHPSESSID 값이다.  
-ex) PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0; => sess_fqs54b8ies3uhuhlttlb3lq3d0  
+* 세션 파일명 : ``sess_[random_string]`` 여기서 ``[random_string]``은 클라이언트가 가지고 있는 PHPSESSID 값이다.  
+ex) ``PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0;`` => ``sess_fqs54b8ies3uhuhlttlb3lq3d0``
   
-단, 회원 가입에서 ``<, >`` 를 막아놨기 때문에 SQL Injection을 활용해야 한다.
+단, 회원 가입에서 ``<, >`` 를 막아놨기 때문에 sql injection을 활용해야 한다.
 
 --------------------------------------------
 ### LFI (session inclusion)
-이제 세션에 PHP 코드를 넣는데 성공했다.  
-LFI는 ``?p=home.html`` 여기 p 파라미터에서 발생하는데 p 파라미터는 ``secure_page`` 함수를 거친다.  
+이제 세션에 php 코드를 넣는데 성공했다.  
+lfi는 ``?p=home.html`` 여기 p 파라미터에서 발생하는데 p 파라미터는 ``secure_page`` 함수를 거친다.  
 해당 함수는 ``config/function.php`` 에서 확인할 수 있다.
 
 ```php
@@ -111,13 +111,13 @@ ex) ``PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0html``
   
 ``?p=..././..././..././..././..././var/lib/php/sessions/fqs54b8ies3uhuhlttlb3lq3d0html``  
   
-RCE가 성공적으로 되는걸 확인했다면, flag.php를 읽으면 된다.  
+rce가 성공적으로 되는걸 확인했다면, flag.php를 읽으면 된다.  
   
 ``?p=..././..././..././..././..././var/lib/php/sessions/fqs54b8ies3uhuhlttlb3lq3d0html&x=echo file_get_contents('flag.php');``
 
 ## sqlgame revenge (480pts) - solver (2)
 
-MySQL Injection 문제다.
+노말한 sql injection challenge다.
 
 ```php
 <?php
