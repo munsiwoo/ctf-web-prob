@@ -9,7 +9,7 @@ Written by Siwoo Mun (munsiwoo)
 
 goodaegi board는 sql injection과 lfi, php 세션을 이용한 rce문제다.  
 의도한 풀이는 sql injection으로 php 코드를 username에 넣어주고 가입한 계정으로 로그인해서  
-lfi로 해당 계정의 세션을 포함시켜 rce로 flag.php 읽어오는걸 의도했다.
+lfi로 해당 계정의 세션을 포함시켜 rce로 flag.php를 읽어오는걸 의도했다.
   
 자세한 풀이는 아래를 참고하자.  
   
