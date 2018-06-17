@@ -7,16 +7,16 @@ Written by Siwoo Mun (munsiwoo)
 
 ## goodaegi board (490pts) - solver (1)
 
-구대기 보드는 sql injection과 lfi, php 세션을 이용한 rce문제다.  
+goodaegi board는 sql injection과 lfi, php 세션을 이용한 rce문제다.  
 의도한 풀이는 sql injection으로 php 코드를 username에 넣어주고 가입한 계정으로 로그인해서  
-lfi로 해당 계정의 세션을 포함시켜 rce로 flag.php 읽어오는걸 의도했다. (session to rce)  
+lfi로 해당 계정의 세션을 포함시켜 rce로 flag.php 읽어오는걸 의도했다.
   
-자세한 풀이는 아래를 참고하자  
+자세한 풀이는 아래를 참고하자.  
   
 --------------------------------
 ### SQL Injection
 
-``classes/user.class.php`` 에 있는 user_join 함수에서 sql injection이 발생한다.
+``classes/user.class.php`` 에 있는 user_join function에서 sql injection이 발생한다.
 
 ```php
 public function user_join($user) {
@@ -37,7 +37,7 @@ public function user_join($user) {
 ```
 
 위 소스의 두 번째 줄부터 네 번째 줄을 보면 sql injection방지를 위해 addslashes를 거치고
-sql truncate attack을 방지한다며 문자열을 100자로 자르고 있다.  
+그 다음 줄에서 sql truncate attack을 방지한다며 문자열을 100자로 자르고 있다.  
   
 addslashes를 거치기 때문에 이 코드가 안전하다고 생각할 수 있겠지만 아래와 같이 공격이 가능하다.  
 
@@ -46,14 +46,14 @@ nickname : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 username : ,1,1)#
 ```
 
-이유는 'a' * 99 뒤에 single quote가 붙었을 때 addslashes를 거치면서 앞에 backslashes(\)가 붙고  
+공격이 가능한 이유는 'a' * 99 뒤에 single quote가 붙었을 때 addslashes를 거치면서 앞에 backslashes(\)가 붙고  
 'a' * 99 + backslashes + single quote가 되면서 single quote가 잘리게 된다.  
   
-즉 아래와 같은 꼴이 된다.  
+즉 query는 아래와 같은 꼴이 된다.  
   
 ``insert into users values ('aaaaaaaa\', '<inject point>', '<hash>');``
 
-이제 여기서 username에 PHP 코드를 넣어주고 가입하면 된다
+이제 여기서 username에 php 코드를 넣어주고 가입하면 된다.  
 
 ```
 nickname : aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\
@@ -64,7 +64,7 @@ username : ``<? eval($_GET[x]);?>``
 password : ``a``  
 
 ---------------------------------------------
-### PHP SESSION to RCE PoC
+### PHP SESSION to RCE
 
 session to rce의 간단한 예시를 들어보면  
 php에서 로그인을 구현할 때 로그인에 성공하면 보통 아래와 같이 세션을 처리한다.
