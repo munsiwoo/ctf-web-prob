@@ -86,7 +86,7 @@ if(isset($fetch['username'])) { // 유저가 존재한다면
 * 세션 파일명 : ``sess_[random_string]`` 여기서 ``[random_string]``은 클라이언트가 가지고 있는 PHPSESSID 값이다.  
 ex) ``PHPSESSID=fqs54b8ies3uhuhlttlb3lq3d0;`` => ``sess_fqs54b8ies3uhuhlttlb3lq3d0``
   
-단, 회원 가입에서 ``<, >`` 를 막아놨기 때문에 sql injection을 활용해야 한다.
+단, 회원 가입에서 ``<, >`` 를 막아놨기 때문에 위에서 설명한 sql injection을 활용해서 넣어줘야 한다.
 
 --------------------------------------------
 ### LFI (session inclusion)
