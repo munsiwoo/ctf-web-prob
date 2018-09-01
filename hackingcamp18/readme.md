@@ -1,12 +1,12 @@
 # Pretty Shop (Hackingcamp 18)
 
 ```
-문제명 : Pretty shop
-출제자 : 문시우
-난이도 : 하
+문제명 (Challenge name) : Pretty shop
+출제자 (Author) : 문시우
+난이도 (Difficulty) : Easy
 ```
 
-### 문제 셋팅
+### 문제 셋팅 (Settings)
 
 환경 : `apache2, php7.2.7, sqlite3`
 
@@ -22,7 +22,7 @@ $ sudo apt-get install php-sqlite3
 $ /etc/php/7.x/apache2/php.ini 에서 ;extension=php_sqlite3.dll 앞에있는 ; 지우기
 
 
-### 취약점 개요
+### 취약점 개요 (Vulnerability)
 
 Concept : Indirect sql injection in sqlite3
 
@@ -31,7 +31,7 @@ line 42 : `$user = $this->get_user_information($_SESSION['username']);`
 `get_user_information` 메소드로 `$_SESSION['username']`를 그대로 넘겨주고 있다.
 
 
-### 풀이 방법
+### 풀이 방법 (How to exploit)
 
 ```python
 from requests import post
