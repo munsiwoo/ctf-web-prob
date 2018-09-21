@@ -1,0 +1,20 @@
+<script>
+	function register() {
+		let data = {
+			'username':$("#username").val(),
+			'password':$("#password").val()
+		};
+		
+		$.post("/register.html", data, function(res) {
+			$("#result").html(res);
+		});
+	}
+</script>
+
+<p style="font-size:35px;">register</p>
+<form>
+	<input type="text" id="username" name="username" placeholder="username" style="width: 244px; height: 40px; font-size: 19px; padding: 5px; margin-bottom: 2px;" autofocus><br>
+	<input type="password" id="password" name="password" placeholder="password" style="width: 244px; height: 40px; font-size: 19px; padding: 5px; margin-bottom: 2px;"><br>
+	<input type="submit" value="register" style="width: 244px; height: 35px; font-size: 19px;" onclick="register(); return false;">
+</form>
+<div id="result" style="margin-top:10px;"></div>
