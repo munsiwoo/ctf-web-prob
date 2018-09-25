@@ -26,3 +26,5 @@ This is my CTF challenge collection which was revealed by CTF =)
 	* dirt-Y (php challenge)
 	* is this possible? (sql injection)
 	* simple login (sql injection)
+* Layer7 CTF 2018
+	* Margaret (RCE via session lfi)
