@@ -10,7 +10,7 @@ I made a challenge for the `2018 layer7 ctf`.
 	* PHP 7.0.28-0ubuntu0.16.04.1
 	* sqlite 3.11.0
 -----------------
-### php.ini
+### php.ini - disable_functions
 ```
 disable_functions = pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,
 pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_dispatch,pcntl_get_last_error,
