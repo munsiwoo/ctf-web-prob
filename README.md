@@ -27,4 +27,6 @@ This is my web prob collection :D
 	* is this possible? (sql injection)
 	* simple login (sql injection)
 * Layer7 CTF 2018
-	* Margaret (RCE via session lfi)
+	* Margaret (RCE via PHP Session)
+* HackingCamp18 CTF
+	* Pretty Shop (Indirect SQL Injection)
