@@ -1,5 +1,5 @@
 #  My CTF Challenges
-This is my CTF challenge collection which was revealed by CTF =)
+This is my web prob collection :D
 
 * email : mun.xiwoo@gmail.com
 *  website : <http://munsiwoo.kr>
