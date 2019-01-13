@@ -1,8 +1,8 @@
 #  My CTF Challenges
 This is my web prob collection :D
 
-* email : mun.xiwoo@gmail.com
-*  website : <http://munsiwoo.kr>
+* mun.xiwoo@gmail.com
+* <http://munsiwoo.kr>
 
 ## List of challenge
 * Belluminar 2017
