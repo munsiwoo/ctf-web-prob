@@ -27,7 +27,7 @@ if($cnt == 30) {
 }
 
 $cnt = $cnt + 1;
-file_put_contents('cnt-file' $cnt);
+file_put_contents('cnt-file', $cnt);
 
 if($cnt == 1) {
     die($flag);
