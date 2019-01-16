@@ -1,4 +1,4 @@
-##### Count (Web)
+# Count (Web)
 
 -----
 This challenge is simple race condition in php.
