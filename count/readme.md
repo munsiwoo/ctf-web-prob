@@ -1,13 +1,13 @@
 # Count (Web)
 
 -----
-This challenge is simple race condition in php
+This challenge is simple race condition in php  
 php has functions called `file_get_contents` and `file_put_contents`
 
-`file_put_contents` function is accepts four args. (can $flags, $context args be omitted)
+`file_put_contents` function is accepts four args. (can $flags, $context args be omitted)  
 ```c
 int file_put_contents ( string $filename , mixed $data [, int $flags = 0 [, resource $context ]] )
-```
+``` 
 This function is identical to calling fopen(), fwrite() and fclose() successively to write data to a file.  
   
 영어로 쓰다가 힘들어서 그냥 한국어로 쓴다.  
