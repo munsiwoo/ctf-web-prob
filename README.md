@@ -4,7 +4,7 @@ This is my web prob collection :D
 * mun.xiwoo@gmail.com
 * <http://munsiwoo.kr>
 
-## List of challenge
+## List of challenges
 * Belluminar 2017
 	* color world (xslt)
 * Layer7 CTF 2017
