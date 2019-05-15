@@ -14,7 +14,7 @@
   * Blind CSS Injection
 * Last old school (Web, PHP)
   * White box
-  * BIGINT Overflow Error Based SQL Injection
+  * Error Based SQL Injection
 
 
 ```
