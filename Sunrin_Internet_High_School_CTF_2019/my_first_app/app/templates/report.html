@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Report</title>
+	<style>
+		input[name="url"] {
+			width: 250px;
+			padding-left: 3px;
+		}
+	</style>
+</head>
+<body>
+<h2>Report</h2>
+You can report a post by sending a post URL to admin.
+<br><br>
+<form method="POST">
+	<b>Post URL : </b>
+	<input type="text" name="url" placeholder="URL" required="">
+	<input type="submit" value="Report"><br>
+	<small>Example) http://httpd.shop:23906/read/1</small>
+</form>
+
+<br>
+<a href="/"><button>Home</button></a>
+<br>
+<br>
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+		<b>{{ message }}</b>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+</body>
+</html>

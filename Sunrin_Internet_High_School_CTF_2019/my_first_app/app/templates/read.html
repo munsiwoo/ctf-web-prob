@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{{post['title']}}</title>
+	<style>
+		.contents {
+			font-size: 15px;
+			margin-top: 3px;
+		}
+	</style>
+</head>
+<body>
+<h2>Read post</h2>
+<b>Title : {{post['title']}}</b><br>
+<small>Username : {{post['username']}}</small>
+<hr>
+<b>Contents</b>
+<pre class="contents">
+{{post['contents']}}
+</pre>
+<hr>
+<a href="/board"><button>Board</button></a>
+</body>
+</html>

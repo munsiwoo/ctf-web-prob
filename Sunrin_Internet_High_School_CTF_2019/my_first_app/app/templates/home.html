@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Home</title>
+</head>
+<body>
+<h2>Home</h2>
+
+<img src="/static/sibariza.png" style="width:100px;">
+<hr>
+
+{% if 'username' in session %}
+
+Hello, <b>{{session['username']}}</b> &nbsp;<img src="/static/{{avatar}}.png" style="width:32px;height:32px;"><br>
+<pre>
+you can see your <b>profile</b> <a href="profile">here</a>.
+you can use the <b>free board</b> <a href="/board">here</a>.
+you can <b>report a post</b> <a href="/report">here</a>.
+you can do <b>logout</b> <a href="/logout">here</a>.
+</pre>
+
+{% else %}
+
+Welcome, you can <b>login</b> <a href="/login">here</a>.<br>
+If you want to <b>register</b>, you can do it <a href="/register">here</a>.
+
+{% endif %}
+</body>
+</html>

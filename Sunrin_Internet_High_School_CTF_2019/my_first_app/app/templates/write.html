@@ -1,0 +1,38 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Write</title>
+	<style>
+		input[name="title"] {
+			width: 250px;
+			margin-bottom:5px;
+			padding: 3px;
+		}
+		textarea {
+			width: 250px;
+			height: 100px;
+			padding: 5px;
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+<body>
+
+<h2>Write</h2>
+
+<form method="POST">
+	<input type="text" name="title" placeholder="title"><br>
+	<textarea name="contents" placeholder="textarea"></textarea><br>
+	<input type="submit" value="Write">
+</form>
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+		<b>{{ message }}</b>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Board</title>
+	<style>
+	table, th, td {
+		border: black 1px solid;
+		text-align: center;
+		font-size: 15px;
+	}
+	button {
+		padding: 3px;
+		margin-bottom: 3px;
+		width: 130px;
+	}
+	</style>
+</head>
+<body>
+<h2>Board</h2>
+<a href="/write"><button>Write post</button></a>
+<a href="/"><button>Home</button></a>
+<br>
+<table>
+	<tr>
+		<th width="50">Pid</th>
+		<th width="250">Title</th>
+		<th>Username</th>
+		<th width="50">Avatar</th>
+	</tr>
+	
+	{% for post in post_list %}
+	<tr>
+		<td>{{post['pid']}}</td>
+		<td><a href="/read/{{post['pid']}}">{{post['title']}}</a></td>
+		<td>{{post['username']}}</td>
+		<td><img src="/static/{{post['avatar']}}.png" style="width:32px;height:32px;"></td>
+	</tr>
+	{% endfor %}
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Profile</title>
+
+	<style>
+	.avatar_box {
+		display: block;
+	}
+	.avatar {
+		width: 100px;
+		height: 100px;
+		background-image: url(/static/{{user['avatar']}}.png);
+		background-size: 100% 100%;
+		float: left;
+		margin-right: 50px;
+	}
+	.eye {
+		width: 20px;
+		height: auto;
+		vertical-align: middle;
+	}
+	</style>
+</head>
+<body>
+
+<script>
+	function show_password() {
+		let password  = document.querySelector("#profile").password;
+		if(password.type == 'password') {
+			password.type = 'text';
+		} else {
+			password.type = 'password';
+		}
+	}
+</script>
+
+<h2 style="margin-bottom: 3px;">Hello, {{user['username']}}</h2>
+<a href="/"><button>Home</button></a><br>
+<br>
+<b>User ID : </b>{{user['uid']}}<br>
+<b>Comment : </b>{{user['comment']}}
+<hr>
+<b>Your avatar</b><br>
+<div class="avatar_box">
+<div class="avatar"></div>
+<div class="avatar_preview">
+	<small><b>You can choose avatar.</b></small><br>
+	1. <a href="?avatar=munsiu">munsiu</a><br>
+	2. <a href="?avatar=mommyhand">mommyhand</a><br>
+	3. <a href="?avatar=peach">peach</a><br>
+</div>
+</div>
+<br>
+<hr>
+<form method="POST" id="profile">
+<input type="hidden" name="avatar" value="{{user['avatar']}}">
+<b>Password : </b>
+<input type="password" name="password" placeholder="password" value="{{user['password']}}">
+<img src="/static/eye.png" class="eye" onclick="show_password()"><br>
+<small>Press the <b>"Save change"</b> button If you want to apply avatar or change password.</small>
+<br>
+<input type="submit" value="Save change">
+</form>
+<br>
+<br>
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+		<b>{{ message }}</b>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+</body>
+</html>
