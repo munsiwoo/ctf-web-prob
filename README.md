@@ -1,4 +1,4 @@
-#  My CTF Challenges
+#  My CTF Web Challenges
 This is my web prob collection :D
 
 * mun.xiwoo@gmail.com
@@ -29,4 +29,8 @@ This is my web prob collection :D
 * Layer7 CTF 2018
 	* Margaret (RCE via PHP Session)
 * HackingCamp18 CTF
-	* Pretty Shop (Indirect SQL Injection)
+	* Pretty Shop (Indirect SQL Injection, SQLite)
+* Sunrin Internet High School CTF 2019
+	* jjang9 - (PHP Trick, PHP open_basedir bypass, Lfi to RCE)
+	* My first app - (Flask, Blind CSS Injection)
+	* Last old school - (PHP, Error Based SQL Injection)
