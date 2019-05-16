@@ -4,7 +4,7 @@ from selenium.common.exceptions import TimeoutException
 
 import time, sqlite3
 # admin robot selenium
-
+# made by munsiwoo
 
 def driver_init() :
 	global driver
