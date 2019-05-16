@@ -1,4 +1,4 @@
-### 2019 Sunrin Internet High School CTF
+# 2019 Sunrin Internet High School CTF
 
 `All prob were made by munsiwoo.`  
 
