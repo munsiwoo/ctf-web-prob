@@ -8,9 +8,9 @@ This is my web prob collection.
 
 ```
 Sunrin Internet High School CTF
-	* jjang9 - (PHP Trick, PHP open_basedir bypass, Lfi to RCE)
-	* My first app (Flask / Blind CSS Injection)
-	* Last old school (PHP / Error based SQL Injection)
+ * jjang9 (PHP Trick / Bypass open_basedir / Lfi to RCE)
+ * My first app (Flask / Blind CSS Injection)
+ * Last old school (PHP / Error based SQL Injection)
 Etc
 	* Rename (PHP Filesystem Trick)
 ```
@@ -19,33 +19,33 @@ Etc
 
 ```
 H3X0R CTF
-	* SQL game revenge (SQL Injection)
-	* Goodaegi board (SQL Injection)
+ * SQL game revenge (SQL Injection)
+ * Goodaegi board (SQL Injection)
 Sunrin Hacking Festival
-	* Click the button (Misc / Coding)
-	* Pretty board (SQL Injection)
-	* Simple Login2 (RCE via Lfi)
-	* Simple Login (SQL Injection)
+ * Click the button (Misc / Coding)
+ * Pretty board (SQL Injection)
+ * Simple Login2 (RCE via Lfi)
+ * Simple Login (SQL Injection)
 Layer7 CTF
-	* Margaret (RCE via PHP Session)
+ * Margaret (RCE via PHP Session)
 Hackingcamp18 CTF
-	* Pretty Shop (Indirect SQLite Injection)
+ * Pretty Shop (Indirect SQLite Injection)
 ```
 
 #### 2017
 
 ```
 Belluminar
-	* color world (xslt)
+ * Color world (XXE / RCE via xslt)
 Layer7 CTF
-	* daniel's daily life (BBCode XSS)
-	* Can you bypass me? (Eval injection / Bypass regexp)
+ * daniel's daily life (BBCode XSS)
+ * Can you bypass me? (Eval injection / Bypass regexp)
 Power Of XX
-	* Basic web (SQL Injection)
-	* SQL game (SQ Injection)
+ * Basic web (SQL Injection)
+ * SQL game (SQL Injection)
 Etc
-	* Can you do it? (SQL Injection)
-	* Dirt-Y (PHP deobfuscate)
-	* Is this possible? (SQL Injection)
-	* Simple Login (SQL Injection)
+ * Can you do it? (SQL Injection)
+ * Dirt-Y (PHP deobfuscate)
+ * Is this possible? (SQL Injection)
+ * Simple Login (SQL Injection)
 ```
