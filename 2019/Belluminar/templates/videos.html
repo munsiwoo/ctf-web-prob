@@ -1,0 +1,6 @@
+<h2>Videos</h2>
+@mun foreach($videos as $video)
+    <a href="/read?no=@var($video['no'])">
+        <img src="@var(json_decode($video['video'], true)['video_thumbnail'])" width="180">
+    </a>
+@endforeach

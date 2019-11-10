@@ -1,0 +1,33 @@
+<script>
+    function post_write() {
+        let data = {
+            'title':$('[name="title"]').val(),
+            'contents':$('[name="contents"]').val(),
+            'video_url':$('[name="video_url"]').val(),
+        };
+
+        $.post("/upload", data, function(response) {
+            let result = JSON.parse(response);
+            $(".upload-result").fadeIn(1000);
+            $(".upload-result").text(result['msg']);
+            if(result['status']) {
+                setTimeout(function() {
+                    location.href = result['rurl'];
+                }, 1000);
+            }
+            $(".upload-result").fadeOut(2000);
+        });
+    }
+</script>
+
+<h2>Upload (share)</h2>
+
+<form method="POST" class="upload-form" onsubmit="post_write();return false;">
+    <input type="text" name="title" placeholder="Title" maxlength="35" required="" autofocus=""><br>
+    <textarea name="contents" placeholder="Contents" maxlength="100"></textarea><br>
+    <input type="text" name="video_url" placeholder="Video url" required=""><br>
+    <small>Example : https://www.youtube.com/watch?v=FcyU-GTrLlI</small><br><br>
+    <input type="submit" value="Upload">
+</form>
+
+<div class="upload-result"></div>

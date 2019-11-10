@@ -1,0 +1,29 @@
+<script>
+    function register() {
+        let data = {
+            'username':$('[name="username"]').val(),
+            'password':$('[name="password"]').val(),
+        };
+        
+        $.post("/register", data, function(response) {
+            let result = JSON.parse(response);
+            $(".register-result").text(result['msg']);
+            $(".register-result").fadeIn(1000);
+
+            if(result['status']) {
+                setTimeout(function() {
+                    location.href = "/login";
+                }, 1000);
+            }
+            $(".register-result").fadeOut(2000);
+        });
+    }
+</script>
+
+<h2>Register</h2>
+<form method="POST" class="register-form" onsubmit="register(); return false;">
+    <input type="text" name="username" placeholder="Username" required="" autofocus=""><br>
+    <input type="password" name="password" placeholder="Password" required="">
+    <input type="submit" value="Register">
+</form>
+<div class="register-result"></div>

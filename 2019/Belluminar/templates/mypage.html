@@ -1,0 +1,37 @@
+<script>
+    function check_attendance() {
+        $.post("/check_attendance", {}, function(response) {
+            let res = JSON.parse(response);
+            if(res['status']) {
+                alert(res['msg']);
+                location.reload();
+                return true;
+            }
+            alert(res['msg']);
+            return false;
+        });
+    }
+    function get_premium() {
+        $.post("/get_premium", {}, function(response) {
+            let res = JSON.parse(response);
+            if(res['status']) {
+                alert(res['msg']);
+                location.reload();
+                return true;
+            }
+            alert(res['msg']);
+            return false;
+        });
+    }
+</script>
+
+<h2>Mypage</h2>
+<p>
+    <b>Username</b> : @var($username)<br>
+    <b>Joined date</b> : @var($joined)<br>
+    <b>Attendance</b> : @var($attendance)<br>
+    <b>Premium</b> : @var($is_premium)<br>
+</p>
+
+<button onclick="check_attendance()">Check attendance</button>
+<button onclick="get_premium()">Get premium</button>

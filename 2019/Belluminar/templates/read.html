@@ -1,0 +1,27 @@
+<script>
+    function post_delete(no) {
+        $.post("/delete", {"no":no}, function(response) {
+            let result = JSON.parse(response);
+            if(result['status']) {
+                alert('Delete success');
+                location.href = "/videos";
+            }
+            else
+                alert('Delete failed');
+        });
+    }
+</script>
+
+@mun if($is_writer)
+    <hr>
+    <button class="delete-btn" onclick="post_delete(@var($no))">Delete</button>
+@endif
+
+<h2>@var($title)</h2>
+<p>
+    <b>Writer</b> : @var($writer)<br>
+    <b>Video url</b> : https://www.youtube.com/watch?v=@var($video['video_id'])<br>
+    <b>Video length</b> : @var($video['video_length'])s
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/@var($video['video_id'])" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>@var(nl2br($contents))</p>
