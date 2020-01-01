@@ -6,7 +6,7 @@ function generate_random() {
 }
 
 function pig_waf($argv) {
-    if(preg_match('/dynamic_|file/is', $argv))
+    if(preg_match('/dynamic_|file|mysql/is', $argv))
         die(json_encode(['message'=>'Waf has detected a hack!']));
     if(preg_match('/\x27|\x20|\x09|\x0a|\x0b|\x0c|\x0d|\xa0|\//is', $argv))
         die(json_encode(['message'=>'Waf has detected a hack!']));
