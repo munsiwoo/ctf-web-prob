@@ -1,0 +1,79 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.5/purify.min.js"></script>
+    <style>
+    .alert {
+        padding: 20px;
+        background-color: #f49b36;
+        color: white;
+    }
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .closebtn:hover {
+        color: black;
+    }
+    </style>
+</head>
+<body>
+    <div id="msgbox"></div>
+    <div id="profile"></div>
+    <div id="appinfo">
+        <b>App Information</b><br>
+        Version: <span name="version"></span><br>    
+        AppName: <span name="appname"></span><br>    
+        Language: <span name="lang"></span>
+    </div>
+    
+    <script>
+        var url = new URL(document.location.href);
+        var username = new URLSearchParams(url.search).get("username") || 'guest';
+
+        if (username){
+            var sanitized_name = DOMPurify.sanitize(username, {
+                FORBID_TAGS: ['a','img','input','form','style','meta']
+            });
+            document.getElementById("profile").innerHTML = `<p>Hello, ${sanitized_name} :)</p>`;
+        }
+    </script>
+
+    <script>
+        /* display app info */
+        const APPINFO = window.APPINFO || {
+            version: "v0.1",
+            appname: "testApp",
+            lang: "en",
+            message: {
+                "title": "Welcome Message",
+                "contents": "Hello everyone, have a nice day!"
+            }
+        };
+
+        document.title = `${APPINFO.appname} :: ${APPINFO.version}`;
+        document.querySelector('[name=version]').textContent = APPINFO.version;
+        document.querySelector('[name=appname]').textContent = APPINFO.appname;
+        document.querySelector('[name=lang]').textContent = APPINFO.lang;
+
+        if(!sessionStorage.getItem('dontshow')){
+            document.querySelector("#msgbox").innerHTML =
+            `<div class="alert">
+                <span class="closebtn" onclick="
+                    sessionStorage.setItem('dontshow', true);
+                    this.parentElement.style.display='none';
+                ">&times;</span>
+                <strong>${APPINFO.message.title}</strong><br>
+                <span>${APPINFO.message.contents}</span><br>
+            </div>`;
+        }
+    </script>
+</body>
+</html>

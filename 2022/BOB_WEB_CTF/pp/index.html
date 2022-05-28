@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://google.github.io/closure-library/source/closure/goog/base.js"></script>
+    <script type="text/javascript" src="config.js"></script>
+</head>
+<body>
+    <div id="msgbox"></div>
+    <script>
+        goog.require('goog.html.sanitizer.HtmlSanitizer');
+        goog.require('goog.dom');
+    </script>
+    <script>
+        window.onload = function(){
+            appInit();
+
+            if(!_get['msg']) location.replace('?msg=<h1>hello</h1>');
+
+            const sanitized = htmlSanitizer.sanitize(_get['msg']);
+            const clean_msg = goog.dom.safeHtmlToNode(sanitized);
+
+            document.querySelector("#msgbox").append(clean_msg);
+        };
+    </script>
+</body>
+</html>
