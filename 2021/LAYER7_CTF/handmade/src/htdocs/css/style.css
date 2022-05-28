@@ -1,0 +1,436 @@
+/* Website template by freewebsitetemplates.com */
+/*------------------------- Layout styles ------------------------*/
+body{
+	margin:0;
+	background:url(../images/bg-body.jpg);
+}
+/*------------------------- Header ------------------------*/
+.header{
+	background:url(../images/bg-header.gif) repeat-x center bottom;
+	padding: 0 0 2px;
+}
+.header div{
+	width:940px;
+	padding:0 10px;
+	margin:0 auto;
+}
+.header div a#logo{
+	text-align:center;
+	display:block;
+	width:480px;
+	height:118px;
+	margin:98px auto 40px;
+}
+.header div a#logo img{
+	border:0;
+}
+.header div ul{
+	list-style:none;
+	margin:0;
+	padding:0 12px;
+	overflow:hidden;
+}
+.header div ul li:first-child{
+	margin:0;
+}
+.header div ul li.selected{
+	background:url(../images/bg-menu-selected.jpg) repeat-x;
+}
+.header div ul li{
+	float:left;
+	margin:0 0 0 41px;
+	text-align: center;
+	width:150px;
+	height:59px;
+}
+.header div ul li a:hover{
+	color:#9f5b34;
+}
+.header div ul li a{
+	text-decoration:none;
+	color:#fff;
+	font-family: tahoma;
+	font-size: 28px;
+	display: block;
+	font-family: arial;
+	margin: 15px 0 0;
+	text-transform:uppercase;
+	line-height:36px;
+	outline:none;
+}
+/*------------------------- Content ------------------------*/
+.content{
+	background:url(../images/bg-content.jpg);
+}
+.content div{
+	width:940px;
+	padding:0 10px;
+	margin:0 auto;
+}
+.content div ul:first-child{
+	padding:18px 0 0;
+	margin: 0;
+}
+.content div ul{
+	list-style: none;
+	margin:48px 0 0;
+	padding:0 0 29px;
+	overflow:hidden;
+}
+.content div ul li:first-child{
+	margin: 0;
+}
+.content div ul li{
+	float: left;
+	text-align:center;
+	margin: 0 0 0 20px;
+}
+.content div ul li a:first-child img{
+	border: 4px solid #d3d1d2;
+}
+.content div ul li a:first-child img:hover{
+	filter:alpha(opacity=80);
+	opacity:0.8;
+}
+.content div ul li a:first-child{
+	height:228px;
+	margin:0;
+}
+.content div ul li a{
+	display:block;
+	font-family: times new roman;
+	font-size:30px;
+	color:#fff;
+	text-decoration: none;
+	outline:none;
+	margin: 7px 0 0;
+}
+.content div ul li table{
+	width:290px;
+	margin:9px 0 0;
+}
+.content div ul li table td:first-child{
+	text-align:left;
+}
+.content div ul li table td{
+	text-align:right;
+	color:#fffbea;
+	font-family: "Lucida Grande",sans-serif;
+	font-size:19px;
+	letter-spacing:1px;
+	padding: 0 0 5px;
+}
+.content div h3:first-child{
+	padding:76px 0 0;
+}
+.content div h3{
+	margin:0;
+	padding:54px 0 0;
+	font-family: "Lucida Grande",sans-serif;
+	color:#fffeff;
+	font-size:16px;
+	font-weight:bold;
+	letter-spacing: 2px;
+}
+.content div p{
+	margin:0;
+	font-family: "Lucida Grande",sans-serif;	
+	color:#fffeff;
+	font-size:16px;
+	margin: 11px 0 0;
+	line-height: 42px;
+	text-align: justify;
+	letter-spacing:1px;
+}
+.content div p.lastchild{
+	padding-bottom:65px;
+}
+.content div p a{
+	font-family: "Lucida Grande",sans-serif;
+	color:#fffeff;
+	text-decoration: underline;
+	font-size: inherit;
+	outline:none;
+}
+.content div p a:hover{
+	text-decoration:underline;
+	color:#431b05;
+}
+.content div div.contact p{
+	color: #FFFEFF;
+	font-family: "Lucida Grande",sans-serif;
+	font-size:16px;
+	line-height: 41px;
+	margin: 0;
+	text-align: justify;
+	padding: 34px 0 0;
+}
+.content div div.contact p.address{
+	line-height: 52px;
+	margin: 13px 0 0;
+}
+.content div div.contact div.connect{
+	overflow:hidden;
+	padding: 0 0 63px;
+	margin: 46px 0 0;
+}
+.content div div.contact div.connect span{
+	float:left;
+	font-family: "Lucida Grande",sans-serif;
+	color:#401700;
+	text-shadow:0 1px 0 #ba835c;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0 17px 0 0;
+	line-height: 17px;
+}
+.content div div.contact div.connect a#content-twitter{
+	display:block;
+	text-indent:-99999px;
+	background:url(../images/icons.png) no-repeat 0 -156px;
+	width:25px;
+	height:18px;
+	float: left;
+	margin:0 10px 0 0;
+	outline:none;
+}
+.content div div.contact div.connect a#content-facebook{
+	display:block;
+	text-indent:-99999px;
+	background:url(../images/icons.png) no-repeat 0 -59px;
+	width:17px;
+	height:18px;
+	float: left;
+	outline:none;
+}
+.content div.blog{
+	overflow:hidden;
+	padding-bottom: 44px;
+}
+.content div.blog div:first-child{
+	width: 640px;
+	background:none;
+	margin:0 0 44px 0;
+	padding:0;
+}
+.content div.blog div:first-child h3{
+	padding: 76px 0 0;
+	background:none;
+	line-height: 21px;
+	text-align:left;
+	height: auto;
+	font-size:16px;
+	font-weight: bold;
+	text-shadow: none;
+}
+.content div.blog div:first-child p{
+	line-height: 36px;
+	margin: 7px 0 0;
+	padding: 0;
+}
+.content div.blog div{
+	float:left;
+	margin:74px 0 44px 20px;
+	width: 280px;
+	background:url(../images/bg-body.jpg);
+	padding:0;
+}
+.content div.blog div h3{
+	padding:0;
+	text-align:center;
+	height:53px;
+	background:url(../images/bg-blog-heading.png) repeat-x;
+	line-height: 56px;
+	font-size: 21px;
+	font-weight:normal;
+	text-shadow:0 -1px 0 #0d2833;
+	color:#ecf9ff;
+}
+.content div.blog div p.first{
+	margin: 13px 0 0;
+}
+.content div.blog div p{
+	line-height: 36px;
+	margin: 36px 0 0;
+	padding: 0 10px;
+}
+.content div.blog div p span{
+	color:#00bff3;
+}
+.content div.blog div div.connect{
+	overflow:hidden;
+	padding: 0 0 63px;
+	margin: 10px 0 0;
+	width:auto;
+	float:right;
+	background:none;
+}
+.content div.blog div div.connect span{
+	float:left;
+	font-family: "Lucida Grande",sans-serif;
+	color:#401700;
+	text-shadow:0 1px 0 #ba835c;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0 17px 0 0;
+	line-height: 17px;
+}
+.content div.blog div div.connect a#twitter{
+	display:block;
+	text-indent:-99999px;
+	background:url(../images/icons.png) no-repeat 0 -156px;
+	width:25px;
+	height:18px;
+	float: left;
+	margin:0 10px 0 0;
+	outline:none;
+}
+.content div.blog div div.connect a#facebook{
+	display:block;
+	text-indent:-99999px;
+	background:url(../images/icons.png) no-repeat 0 -59px;
+	width:17px;
+	height:18px;
+	float: left;
+	outline:none;
+}
+/*------------------------- Footer ------------------------*/
+.footer{
+	background:url(../images/bg-footer.gif) repeat-x center top;
+	padding:2px 0 0;
+}
+.footer div{
+	width:940px;
+	padding:30px 10px 65px;
+	margin:0 auto;
+	overflow: hidden;
+}
+.footer div div:first-child{
+	margin: 0;
+	text-align: justify;
+	width: 665px;
+	padding: 0;
+	height:auto;
+	background:none;
+	border: 0;
+}
+.footer div div:first-child p{
+	font-family: "Lucida Grande", sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color:#fff;
+	line-height: 30px;
+	margin: 7px 0 30px;
+	text-align: justify;
+	text-transform: none;
+	padding: 0;
+	width: auto;
+}
+.footer div div:first-child p.lastchild{
+	margin-bottom: 8px;
+}
+.footer div div:first-child p a{
+	outline:none;
+	color: inherit;
+	text-decoration: underline;
+}
+.footer div div:first-child p a:hover{
+	text-decoration: underline;
+	color: #fd6800;
+}
+.footer div div span:first-child{
+	margin: 12px 0 0;
+}
+.footer div div span{
+	font-family:times new roman;
+	font-size:18px;
+	text-transform:uppercase;
+	color: #fff;
+	text-align:center;
+	margin: 10px 0 0;
+	display: block;
+}
+.footer div div{
+	float:left;
+	width:220px;
+	margin:59px 0 10px 42px;
+	background:url(../images/bg-aside.jpg) no-repeat;
+	padding: 0;
+	height:300px;
+	text-align:center;
+	border-width:1px;
+	border-style: none none solid none;
+	border-color: #d39e7f;
+}
+.footer div div form{
+	width:180px;
+	height:30px;
+	margin:6px auto;
+}
+.footer div div form input:first-child{
+	background:url(../images/interface.png) no-repeat 0 -50px;
+	width: 140px;
+	padding:7px 5px;
+	height:auto;
+}
+.footer div div form input{
+	float:left;
+	background:url(../images/interface.png) no-repeat;
+	border: 0;
+	padding:0;
+	height:30px;
+	width: 30px;
+}
+.footer div div a{
+	outline:none;
+}
+.footer div div a img{
+	border: 0;
+}
+.footer div div h3{
+	font-family: "Lucida Grande", sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color:#fff;
+	margin: 10px 0 0
+}
+.footer div div p{
+	font-family:times new roman;
+	font-size:18px;
+	text-transform:uppercase;
+	color: #fff;
+	line-height: 30px;
+	display: block;
+	padding: 0;
+	margin: 11px 0 10px;
+	text-align:center;
+}
+.footer div div a#twitter{
+	background:url(../images/icons.png) no-repeat 0 -97px;
+	width:62px;
+	height:39px;
+	text-indent: -99999px;
+	display:block;
+	margin: 0 0 0 50px;
+	outline:none;
+	float:left;	
+}
+.footer div div a#facebook{
+	background:url(../images/icons.png) no-repeat;
+	width:41px;
+	height:39px;
+	text-indent: -99999px;
+	display:block;
+	margin: 0 0 0 15px;
+	outline:none;
+	float:left;
+}
+.footer div p{
+	font-family: helvetica;
+	font-size:13px;
+	color:#fff;
+	padding: 0 13px 0 0;
+	text-align: right;
+	margin: 17px 0 0;
+	clear:both;
+}
