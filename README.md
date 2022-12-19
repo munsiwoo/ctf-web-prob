@@ -1,4 +1,4 @@
-# My CTF Challenges (99% Web Challenge)
+# My CTF Challenges (99.98% Web Challenge)
 A collection of web challenges I made.
 
 ### 2017
@@ -57,3 +57,6 @@ A collection of web challenges I made.
 | SUNRIN CTF | BABY XSS | XSS |
 | SUNRIN CTF | HAPPY | XSS |
 | SUNRIN CTF | LOGIN MASTER | SQLite3, SQL Injection | 
+| HSPACE CTF | maidcha | Python, Logic Bug  | 
+| HSPACE CTF | hspace proxy | Python, SSRF, SQL Injection | 
+| HSPACE CTF | lucky7 | XSS | 
