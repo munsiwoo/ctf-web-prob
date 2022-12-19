@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin panel</title>
+</head>
+<body>
+    <h2>Admin panel</h2>
+    <p>Hspace proxy admin panel (notice write)</p>
+	<form action="POST" onsubmit="write(this); return false">
+        <input name="title" placeholder="title"><br>
+        <input type="contents" name="contents" placeholder="contents">
+        <input type="submit" value="write">
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        function write(form){
+            let title = form.username.value;
+            let contents = form.password.value;
+            let token = new URL(location.href).searchParams.get('token');
+
+            $.post("/write_notice", {title, contents, token}, (res)=>{
+                if(res.status)
+                    alert(`write ok, notice id: ${res.notice_id}`);
+                else
+                    alert('write failed');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  public:
+    build:
+      context: .
+      dockerfile: ./public/Dockerfile
+    restart: always
+    ports: 
+      - "8080:8080"
+    links:
+      - admin.internal
+
+  admin.internal:
+    build:
+      context: .
+      dockerfile: ./admin/Dockerfile
+    restart: always
+    volumes:
+      - ./admin/db:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=hspace
+      - MYSQL_DATABASE=hspace_proxy
+      - MYSQL_TCP_PORT=3306
+      - TZ=Asia/Seoul
+    entrypoint: ["/bin/bash", "-c"]
+    command:
+    - |
+      docker-entrypoint.sh mariadbd &
+      python3 /app/app.py

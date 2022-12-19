@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hspace proxy</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2>Hspace proxy</h2>
+    <p>Top notice</p>
+    <a href="/index.html"><button>Main</button></a><br>
+    <div id="notice">
+    </div>
+    <script>
+        function init(){
+            $.post("/notice/list", (res)=>{
+                for(notice of res){
+                    $("#notice").append(`<a href="#" onclick="read('${notice.notice_id}')"><p>${notice.title}</p></a>`)
+                }
+            });
+        }
+        function read(notice_id){
+            $.post("/notice/read", {notice_id}, (res)=>{
+                alert(res.data.contents);
+            });
+        }
+        window.onload = function(){
+            init();
+        };
+    </script>
+</body>
+</html>

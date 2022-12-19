@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin panel</title>
+</head>
+<body>
+    <h2>Admin panel</h2>
+    <p>Hspace proxy admin panel</p>
+	<form action="POST" onsubmit="login(this); return false">
+        <input name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" value="login">
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        function login(form){
+            let username = form.username.value;
+            let password = form.password.value;
+            $.post("/login", {username, password}, (res)=>{
+                if(res.status)
+                    location.href = `/write.html?token=${res.token}`;
+                else
+                    alert('login failed');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hspace proxy</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2>Hspace proxy</h2>
+    <p>free online proxy (beta version)</p>
+    <a href="/notice.html"><button>Top notice</button></a><br>
+    <form action="POST" onsubmit="go(this); return false;">
+        <input type="radio" name="method" value="get" checked><small>GET</small>
+        <input type="radio" name="method" value="post"><small>POST</small><br>
+        <input type="text" name="url" placeholder="http://google.com" style="width: 300px;" required=""><br>
+        <input type="text" name="data" placeholder="parameters(POST only), e.g. {&quot;name&quot;: &quot;john&quot;}" style="width: 300px;">
+        <input type="submit" value="connect">
+    </form>
+    <iframe id="result" style="width: 500px; height: 300px; margin-top: 5px;" sandbox></iframe>
+    <script>
+        function go(options){
+            let data = {
+                "method": options.method.value,
+                "url": options.url.value,
+                "data": options.data.value
+            };
+            $.post("/proxy", data, (res)=>{
+                if(res.status)
+                    $("#result")[0].srcdoc = res.result;
+                else {
+                    if(res.result) $("#result")[0].srcdoc = `<p>${res.result}</p>`;
+                    else $("#result")[0].srcdoc = res;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
