@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: secure-memo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    environment:
+      - TZ=Asia/Seoul
+    restart: always
